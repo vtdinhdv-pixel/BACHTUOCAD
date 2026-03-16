@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-ocean-bg: #e0f2f1;
+  --color-ocean-dark: #0f172a;
+  --color-ocean-light: #f8fafc;
+  --color-octopus-primary: #4db6ac;
+  --color-octopus-accent: #ffb74d;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-ocean-bg text-slate-900 transition-colors duration-300;
+  }
+}
+
+/* Dark Mode */
+.dark body,
+body.dark {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+.dark .glass-card {
+  @apply bg-slate-800 border-slate-700 text-slate-100;
+}
+
+.dark .chat-bubble {
+  @apply bg-slate-700 text-slate-100;
+}
+
+.dark .action-btn {
+  @apply bg-slate-700 border-slate-600 text-slate-300;
+}
+
+.dark .action-btn.active {
+  @apply bg-emerald-900 text-emerald-300 border-emerald-700;
+}
+
+.dark .octopus-avatar {
+  @apply bg-slate-700 border-slate-600;
+}
+
+.dark input,
+.dark select {
+  @apply bg-slate-700 border-slate-600 text-slate-100 placeholder-slate-400;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4 {
+  @apply text-slate-100;
+}
+
+.dark .text-slate-800 {
+  color: #e2e8f0;
+}
+
+.dark .text-slate-700 {
+  color: #cbd5e1;
+}
+
+.dark .text-slate-600 {
+  color: #94a3b8;
+}
+
+.dark .text-slate-400 {
+  color: #64748b;
+}
+
+.dark .bg-white {
+  background-color: #1e293b;
+}
+
+.dark .bg-slate-50 {
+  background-color: #334155;
+}
+
+.dark .bg-yellow-100 {
+  background-color: rgba(250, 204, 21, 0.15);
+}
+
+.dark .bg-blue-100 {
+  background-color: rgba(96, 165, 250, 0.15);
+}
+
+.dark .border-slate-100 {
+  border-color: #334155;
+}
+
+.dark .border-slate-200 {
+  border-color: #475569;
+}
+
+.dark .shadow-sm {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card {
+  @apply bg-white rounded-[2rem] shadow-sm border-none;
+}
+
+.chat-bubble {
+  @apply bg-white rounded-2xl p-4 shadow-sm max-w-[80%];
+}
+
+.action-btn {
+  @apply flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-medium text-slate-600 transition-all hover:bg-slate-50;
+}
+
+.action-btn.active {
+  @apply bg-emerald-100 text-emerald-700 border-emerald-200;
+}
+
+.octopus-avatar {
+  @apply w-10 h-10 rounded-full bg-white flex items-center justify-center border border-slate-100 shadow-sm overflow-hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar-desktop {
+    display: none;
+  }
+  
+  .mobile-header {
+    display: flex !important;
+  }
+
+  .mobile-sidebar-overlay {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-header {
+    display: none !important;
+  }
+
+  .mobile-sidebar-overlay {
+    display: none !important;
+  }
+}
+
+/* Animations */
+@keyframes slideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* KaTeX styles for math rendering */
+@import "katex/dist/katex.min.css";
