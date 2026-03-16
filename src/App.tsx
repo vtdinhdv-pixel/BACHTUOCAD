@@ -25,7 +25,8 @@ import {
   X,
   MessageSquarePlus,
   Copy,
-  Check
+  Check,
+  Paperclip
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
@@ -512,7 +513,13 @@ export default function App() {
                   </button>
                 </div>
 
-                <div className="relative flex items-center gap-2">
+                <div className="relative flex items-center gap-2 md:gap-3">
+                  <button 
+                    onClick={() => Swal.fire('Đang phát triển', 'Tính năng tải tài liệu sẽ sớm ra mắt!', 'info')}
+                    className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-slate-50 dark:bg-slate-700 text-teal-600 dark:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-600 rounded-full transition-colors"
+                  >
+                    <Paperclip className="w-5 h-5 md:w-6 md:h-6" />
+                  </button>
                   <div className="flex-grow relative">
                     <input
                       type="text"
@@ -520,16 +527,22 @@ export default function App() {
                       onChange={(e) => setInputText(e.target.value)}
                       onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleSendMessage()}
                       placeholder="Nhập câu hỏi hoặc bài toán..."
-                      className="w-full pl-4 pr-4 py-3 md:py-4 bg-white dark:bg-slate-700 rounded-full shadow-sm border-none focus:ring-2 focus:ring-octopus-primary outline-none text-slate-700 dark:text-slate-100 dark:placeholder-slate-400"
+                      className="w-full pl-4 pr-4 py-3 md:py-4 bg-slate-50 dark:bg-slate-700 rounded-full border-none focus:ring-2 focus:ring-octopus-primary outline-none text-slate-700 dark:text-slate-100 dark:placeholder-slate-400"
                     />
                   </div>
                   <button 
                     onClick={handleSendMessage}
                     disabled={isAiLoading || !inputText.trim()}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-slate-200 dark:bg-slate-600 flex items-center justify-center text-slate-500 dark:text-slate-300 hover:bg-octopus-primary hover:text-white transition-all disabled:opacity-50"
+                    className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 rounded-full bg-slate-200 dark:bg-slate-600 flex items-center justify-center text-slate-500 dark:text-slate-300 hover:bg-octopus-primary hover:text-white transition-all disabled:opacity-50"
                   >
                     <Send className="w-5 h-5" />
                   </button>
+                </div>
+                
+                <div className="text-center">
+                  <span className="text-[10px] md:text-xs text-slate-400">
+                    Trợ lý ảo có thể mắc lỗi. Hãy luôn kiểm tra lại kết quả.
+                  </span>
                 </div>
               </div>
             </div>
