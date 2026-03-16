@@ -86,7 +86,7 @@ const SidebarInfoItem = ({ icon: Icon, title, content }: { icon: any, title: str
 
 const WELCOME_MESSAGE: ChatMessage = {
   role: 'ai',
-  content: 'Chào bạn! Mình là Bạch Tuộc AD vừa trồi lên từ đại dương tri thức đây! 🐙🌊 Bạn đang gặp "sóng gió" với bài tập Toán hay có tâm sự gì muốn trút bỏ không? Đừng để kiến thức trôi dạt nhé, hãy gửi ngay vào đây, mình sẽ dùng 8 vòi giải quyết giúp bạn trong một nốt nhạc! 🌊✨',
+  content: 'Chào bạn! Mình là Bạch Tuộc AD vừa trồi lên từ đại dương tri thức đây! 🌊 Bạn đang gặp "sóng gió" với bài tập Toán hay có tâm sự gì muốn trút bỏ không? Đừng để kiến thức trôi dạt nhé, hãy gửi ngay vào đây, mình sẽ dùng 8 vòi giải quyết giúp bạn trong một nốt nhạc! 🌊✨',
   timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 };
 
@@ -308,7 +308,7 @@ export default function App() {
           <Menu className="w-6 h-6 text-slate-600 dark:text-slate-300" />
         </button>
         <div className="flex items-center gap-2">
-          <span className="text-xl">🐙</span>
+          <img src="/octopus-avatar.png" alt="Bạch Tuộc AD" className="w-8 h-8 rounded-full border border-slate-200" />
           <h2 className="font-bold text-slate-800 dark:text-slate-100">Bạch Tuộc AD</h2>
         </div>
         <button onClick={toggleDarkMode} className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700">
@@ -342,7 +342,9 @@ export default function App() {
         {/* Top Bar */}
         <div className="flex items-center justify-between px-2">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-700 border border-slate-100 dark:border-slate-600 flex items-center justify-center text-xl shadow-sm">🐙</div>
+            <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-700 border border-slate-100 dark:border-slate-600 flex items-center justify-center shadow-sm overflow-hidden">
+              <img src="/octopus-avatar.png" alt="Avatar" className="w-full h-full object-cover" />
+            </div>
             <div>
               <h2 className="font-bold text-slate-800 dark:text-slate-100 leading-none">Bạch Tuộc AD</h2>
               <span className="text-xs text-emerald-500 font-medium">Đang hoạt động</span>
@@ -445,8 +447,10 @@ export default function App() {
                 {messages.map((msg, idx) => (
                   <div key={idx} className={`flex gap-3 animate-fade-in ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
                     {msg.role === 'ai' && (
-                      <div className="octopus-avatar flex-shrink-0">
-                        <div className="text-xl">🐙</div>
+                      <div className="flex-shrink-0">
+                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white dark:bg-slate-700 border border-slate-100 dark:border-slate-600 flex items-center justify-center shadow-sm overflow-hidden">
+                          <img src="/octopus-avatar.png" alt="Avatar" className="w-full h-full object-cover" />
+                        </div>
                       </div>
                     )}
                     <div className="flex flex-col gap-1 group">
@@ -472,8 +476,10 @@ export default function App() {
                 ))}
                 {isAiLoading && (
                   <div className="flex gap-3">
-                    <div className="octopus-avatar flex-shrink-0">
-                      <div className="text-xl animate-bounce">🐙</div>
+                    <div className="flex-shrink-0">
+                      <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white dark:bg-slate-700 border border-slate-100 dark:border-slate-600 flex items-center justify-center shadow-sm overflow-hidden">
+                        <img src="/octopus-avatar.png" alt="Avatar" className="w-full h-full object-cover animate-bounce" />
+                      </div>
                     </div>
                     <div className="chat-bubble bg-slate-50 dark:bg-slate-700 italic text-slate-400">
                       <div className="flex items-center gap-2">
